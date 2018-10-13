@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, Image, Alert, ScrollView, StatusBar, Switch } from 'react-native';
-import { TextBox } from './components/textBox';
-import { ButtonCircle, ButtonSquare, TextView } from './components/button';
+import { TextBox, TextBoxIcon } from '../components/textBox';
+import { ButtonCircle, ButtonSquare, TextView } from '../components/button';
 
-export default class App extends Component {
+export default class LoginScreen extends Component {
   _klik = () => {
     Alert.alert('Klik!');
   }
@@ -13,9 +13,9 @@ export default class App extends Component {
         <View style={styles.container}>
           <StatusBar backgroundColor='#F57C00' barStyle='light-content'/>
           <Text style={styles.text_header}>Selamat Datang, di</Text>
-          <Image source={require('./img/logo_new.png')} style={styles.image_}/>
-          <TextBox placeholder='Nama pengguna' width='80%' marginTop={40} place_color='#ffff'/>
-          <TextBox placeholder='Kata sandi' width='80%' marginTop={20} place_color='#ffff' password={true}/>
+          <Image source={require('../img/logo_new.png')} style={styles.image_}/>
+          <TextBoxIcon icon='person' placeholder='Nama pengguna' width='80%' backgroundColor='#FB8C00' marginTop={40} place_color='#ffff'/>
+          <TextBoxIcon icon='lock' placeholder='Kata sandi' width='80%' backgroundColor='#FB8C00' marginTop={20} place_color='#ffff' password={true}/>
           <ButtonSquare method={this._klik} width='80%' title='Masuk' marginTop={40} textColor='#ffff'/>
           <TextView method={this._klik} title="Tidak punya akun ? daftar disini" textColor='#ffff' marginTop={60}/>
         </View>
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   image_ : {
     width:160,
-    height: 70,
+    height: 74,
     marginTop: 16,
   },
   text_header: {

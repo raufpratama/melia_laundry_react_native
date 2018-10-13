@@ -13,8 +13,8 @@ export const TextView = ({method,title,textColor,marginTop}) => (
   </TouchableOpacity>
 )
 
-export const ButtonSquare = ({method,title,width,textColor,marginTop}) => (
-  <TouchableOpacity onPress={method} style={[{width,marginTop},styles.buttonSquare]}>
+export const ButtonSquare = ({method,title,width,textColor,marginTop,backgroundColor}) => (
+  <TouchableOpacity onPress={method} style={[{width,marginTop,backgroundColor},styles.buttonSquare]}>
     <Text style={{color:textColor,alignItems: 'center',alignSelf: 'center'}}>{title}</Text>
   </TouchableOpacity>
 )
@@ -32,6 +32,5 @@ const styles = StyleSheet.create({
   },
   buttonSquare: {
     padding:12,
-    backgroundColor: '#FF1744',
   }
 })
