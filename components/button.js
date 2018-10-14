@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {TouchableOpacity, Text, StyleSheet, Button} from 'react-native';
 
 export const ButtonCircle = ({method, title,width,marginTop,textColor}) => (
   <TouchableOpacity onPress={method} style={[{width,marginTop},styles.wrapper]}>

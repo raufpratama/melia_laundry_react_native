@@ -1,0 +1,26 @@
+loginScreen:
+textbox username
+textbox password
+button login
+button textview sign up
+
+signUpScreen:
+textbox name
+textbox email
+textbox phone
+textbox password
+textbox conf password
+textbox alamat
+checkbox agree term and conditions
+button register
+textview term and condition
+
+MainMenuScreen :
+- HomeScreen
+- OrderScreen
+- AboutScreen
+- ProfileScreen
+
+TermConditionScreen :
+text with scrollview
+

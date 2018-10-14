@@ -4,7 +4,7 @@ import OptionsMenu from 'react-native-options-menu';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 const icon_setting = (<Icon name='settings' size={24} color='#ffff'/>);
 
-export const Toolbar = ({title,method,backgroundColor,title_color,
+export const Toolbar = ({title,methodLogout,backgroundColor,title_color,
                          title_size,fontWeight,widthLogo,heightLogo,
                          optionLogoSize,optionLogoName,optionLogoColor,marginRight}) => (
   <View style={[{backgroundColor},styles.main_container]}>
@@ -14,7 +14,7 @@ export const Toolbar = ({title,method,backgroundColor,title_color,
         customButton={icon_setting}
         buttonStyle={{width:32,height:8}}
         options={["Logout"]}
-        actions={[method]}
+        actions={[methodLogout]}
       />
   </View>
 )

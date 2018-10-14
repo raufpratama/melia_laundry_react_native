@@ -8,11 +8,12 @@ import AboutScreen from './screens/AboutScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
+import SignUpScreen from './screens/SignUpScreen';
 
 export default class App extends Component {
   render(){
     return(
-      <HomeMenu/>
+      <SignStack/>
     );
   }
 }
@@ -55,7 +56,12 @@ const HomeMenu = createMaterialBottomTabNavigator({
 });
 
 const SignStack = createStackNavigator({
-  Login:LoginScreen,
+  SignUp: {
+    screen:SignUpScreen,
+    navigationOptions: {
+      header:null,
+    }
+  },
 })
 
 // const Auth = createSwitchNavigator({
