@@ -14,7 +14,7 @@ export const TextBox = ({method,width,placeholder,marginTop,place_color,password
 
 export const TextBoxIcon = ({icon,method,backgroundColor,place_color,textColor,width,placeholder,marginTop,password,text_content,maxLength}) => (
   <View style={[{backgroundColor,width,marginTop},styles.text_icon]}>
-    <Icon name={icon} size={20} color='#ffff' style={{padding:10}}/>
+    <Icon name={icon} size={20} color='#ffff' style={{padding:10,backgroundColor:'#E65100'}}/>
     <TextInput onChangeText={method} placeholder={placeholder} style={{color:textColor}} placeholderTextColor={place_color} secureTextEntry={password} keyboardType={text_content} maxLength={maxLength}/>
   </View>
 )
@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
   },
   text_icon : {
     height: 40,
+    borderRadius: 2.5,
     flexDirection: 'row',
     alignItems: 'center',
   }

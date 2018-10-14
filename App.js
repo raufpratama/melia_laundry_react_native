@@ -56,6 +56,12 @@ const HomeMenu = createMaterialBottomTabNavigator({
 });
 
 const SignStack = createStackNavigator({
+  Login: {
+    screen: LoginScreen,
+    navigationOptions: {
+      header:null,
+    }
+  },
   SignUp: {
     screen:SignUpScreen,
     navigationOptions: {

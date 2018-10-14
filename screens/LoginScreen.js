@@ -9,6 +9,7 @@ export default class LoginScreen extends Component {
   }
 
   render(){
+    const navigate = this.props.navigation;
     return(
         <View style={styles.container}>
           <StatusBar backgroundColor='#F57C00' barStyle='light-content'/>
@@ -17,7 +18,7 @@ export default class LoginScreen extends Component {
           <TextBoxIcon icon='person' placeholder='Nama pengguna' width='80%' backgroundColor='#FB8C00' marginTop={40} place_color='#ffff'/>
           <TextBoxIcon icon='lock' placeholder='Kata sandi' width='80%' backgroundColor='#FB8C00' marginTop={20} place_color='#ffff' password={true}/>
           <ButtonSquare method={this._klik} width='80%' title='Masuk' marginTop={40} textColor='#ffff'/>
-          <TextView method={this._klik} title="Tidak punya akun ? daftar disini" textColor='#ffff' marginTop={60}/>
+          <TextView method={()=> this.props.navigation.navigate('SignUp')} title="Tidak punya akun ? daftar disini" textColor='#ffff' marginTop={60}/>
         </View>
     );
   }

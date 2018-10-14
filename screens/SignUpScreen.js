@@ -8,6 +8,8 @@ import {
   ScrollView,
   Alert,
   Button,
+  Modal,
+  TouchableOpacity,
 } from 'react-native';
 import {ButtonSquare,ButtonCircle,TextView} from '../components/button';
 import {TextBox,TextBoxIcon} from '../components/textBox';
@@ -17,6 +19,7 @@ export default class SignUpScreen extends Component {
   state = {
     checked:false,
     bt_disable:true,
+    modal:false,
   }
 
   _klik = (keterangan) => Alert.alert(keterangan);
@@ -32,7 +35,7 @@ export default class SignUpScreen extends Component {
             return false
           }
     } else {
-      this._klik('form tidak boleh kosong')
+      this._klik('data tidak boleh kosong')
       return false;
     }
   }
@@ -117,11 +120,24 @@ export default class SignUpScreen extends Component {
             color='#D32F2F'
           />
         </View>
-          <TextView
-            title='Term and Conditions'
-            textColor='#ffff'
-            marginTop={20}
-            />
+        <Modal
+          animationType='slide'
+          visible={this.state.modal}
+          transparent={false}
+          onRequestClose={()=>Alert.alert('closed')}
+          >
+          <View style={{padding:15}}>
+            <TouchableOpacity onPress={()=>this.setState({modal:!this.state.modal})}>
+              <Text>Halo dunia</Text>
+            </TouchableOpacity>
+          </View>
+        </Modal>
+        <TextView
+          method={()=>this.setState({modal:!this.state.modal})}
+          title='Term and Conditions'
+          textColor='#ffff'
+          marginTop={20}
+          />
       </ScrollView>
     );
   }
@@ -129,7 +145,6 @@ export default class SignUpScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#F57C00',
     flexDirection: 'column',
     alignItems: 'center',
