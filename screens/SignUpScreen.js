@@ -123,7 +123,7 @@ export default class SignUpScreen extends Component {
         <Modal
           animationType='slide'
           visible={this.state.modal}
-          transparent={false}
+          transparent={true}
           onRequestClose={()=>Alert.alert('closed')}
           >
           <View style={{padding:15}}>

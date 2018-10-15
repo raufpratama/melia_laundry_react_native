@@ -15,9 +15,9 @@ export default class LoginScreen extends Component {
           <StatusBar backgroundColor='#F57C00' barStyle='light-content'/>
           <Text style={styles.text_header}>Selamat Datang, di</Text>
           <Image source={require('../img/logo_new.png')} style={styles.image_}/>
-          <TextBoxIcon icon='person' placeholder='Nama pengguna' width='80%' backgroundColor='#FB8C00' marginTop={40} place_color='#ffff'/>
+          <TextBoxIcon icon='person' placeholder='Nama pengguna' width='80%' backgroundColor='#FB8C00' marginTop={70} place_color='#ffff'/>
           <TextBoxIcon icon='lock' placeholder='Kata sandi' width='80%' backgroundColor='#FB8C00' marginTop={20} place_color='#ffff' password={true}/>
-          <ButtonSquare method={this._klik} width='80%' title='Masuk' marginTop={40} textColor='#ffff'/>
+          <ButtonSquare method={this._klik} width='80%' title='MASUK' marginTop={40} textColor='#ffff' backgroundColor='#D32F2F'/>
           <TextView method={()=> this.props.navigation.navigate('SignUp')} title="Tidak punya akun ? daftar disini" textColor='#ffff' marginTop={60}/>
         </View>
     );
