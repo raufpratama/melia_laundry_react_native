@@ -13,7 +13,7 @@ import SignUpScreen from './screens/SignUpScreen';
 export default class App extends Component {
   render(){
     return(
-      <SignStack/>
+      <HomeMenu/>
     );
   }
 }
@@ -21,7 +21,7 @@ export default class App extends Component {
 
 const HomeMenu = createMaterialBottomTabNavigator({
   Home: {
-    screen:LoginScreen,
+    screen:HomeScreen,
     navigationOptions: {
       tabBarIcon: ()=> (<Icon name="home" size={24} color='#ffff' />),
     },
@@ -69,7 +69,3 @@ const SignStack = createStackNavigator({
     }
   },
 })
-
-// const Auth = createSwitchNavigator({
-//
-// });
