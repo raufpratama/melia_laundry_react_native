@@ -11,10 +11,12 @@ import {
   Dimensions,
   ScrollView,
   TouchableOpacity,
+  Modal,
+  Platform,
 } from 'react-native';
-import { Toolbar } from '../components/toolbar';
+import { Toolbar, Options } from '../components/toolbar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
+import { icon, Header } from 'react-native-elements';
 
 export default class HomeScreen extends Component {
   state = {
@@ -22,24 +24,19 @@ export default class HomeScreen extends Component {
   }
 
   _klik = () => {
-    Alert.alert('klik!');
+    alert('klik!');
   }
   render() {
-
+    const klik = this.klik;
     return (
       <View style={styles.container}>
-        <StatusBar backgroundColor='#F57C00'/>
-        <Toolbar
-          title='Home'
-          backgroundColor='#F57C00'
-          title_color='#ffff'
-          title_size={18}
-          fontWeight='bold'
-          widthLogo={90}
-          heightLogo={25}
-          optionLogoSize={30}
-          optionLogoColor='#ffff'
-          method={this._klik}
+      <StatusBar backgroundColor='#F57C00' barStyle='light-content'/>
+      <Header
+        backgroundColor='#F57C00'
+        outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 30}}
+        placement='left'
+        centerComponent={{ text: 'BERANDA', style: { color: '#fff',fontWeight:'bold',fontSize:16 } }}
+        rightComponent={<Options methodLogout={this._klik}/>}
         />
         <ScrollView style={{flex:4}}
           horizontal={true}
@@ -50,7 +47,7 @@ export default class HomeScreen extends Component {
           <Image source={require('../img/layanan1jam2.jpg')} style={styles.img_carousel} resizeMode='stretch'/>
         </ScrollView>
         <View style={styles.bottom_menu}>
-          <TouchableOpacity style={styles.button_modal_style}>
+          <TouchableOpacity onPress={()=>this.setState({modalisVisible:!this.state.modalisVisible})} style={styles.button_modal_style}>
             <Icon name='expand-less' size={24} color='#c2c2c2'/>
           </TouchableOpacity>
             <Text style={{fontSize: 15,alignSelf: 'center'}}>Silahkan pesan</Text>
@@ -62,7 +59,11 @@ export default class HomeScreen extends Component {
           onRequestClose={()=> console.log('closed')}
           visible={this.state.modalisVisible}
           >
-            
+          <View style={{padding:5}}>
+            <TouchableOpacity onPress={()=>this.setState({modalisVisible:!this.state.modalisVisible})}>
+              <Text>Halo Dunia</Text>
+            </TouchableOpacity>
+          </View>
         </Modal>
 
       </View>

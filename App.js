@@ -9,6 +9,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import SignUpScreen from './screens/SignUpScreen';
+import HistoryScreen from './screens/HistoryScreen';
 
 export default class App extends Component {
   render(){
@@ -23,19 +24,28 @@ const HomeMenu = createMaterialBottomTabNavigator({
   Home: {
     screen:HomeScreen,
     navigationOptions: {
+      tabBarLabel: 'Beranda',
       tabBarIcon: ()=> (<Icon name="home" size={24} color='#ffff' />),
+    },
+  },
+  HistoryS: {
+    screen:HistoryScreen,
+    navigationOptions: {
+      tabBarLabel: 'Pesanan',
+      tabBarIcon: ()=> (<Icon name="list" size={24} color='#ffff' />),
     },
   },
   Order: {
     screen:OrderScreen,
     navigationOptions: {
-      tabBarIcon: ()=> (<Icon name="list" size={24} color='#ffff' />),
+      tabBarLabel: 'Order',
+      tabBarIcon: ()=> (<Icon name="add-shopping-cart" size={24} color='#ffff' />),
     },
   },
   About: {
     screen:AboutScreen,
     navigationOptions: {
-      headerTitle:'About',
+      tabBarLabel:'Tentang',
       tabBarIcon: ()=> (<Icon name="help" size={24} color='#ffff' />),
     },
   },
@@ -43,7 +53,7 @@ const HomeMenu = createMaterialBottomTabNavigator({
     screen:ProfileScreen,
     navigationOptions: {
       tabBarIcon: ()=> (<Icon name="person" size={24} color='#ffff' />),
-      headerTitle:'Profile',
+      tabBarLabel:'Profil',
     },
   },
 }, {
