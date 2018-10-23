@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {Text,View,StyleSheet, Image} from 'react-native';
 import OptionsMenu from 'react-native-options-menu';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-const icon_setting = (<Icon name='more-vert' size={24} color='#ffff'/>);
+import { Header, Left, Button, Right, Body, Title, Icon } from 'native-base';
 
 export const Toolbar = ({title,methodLogout,backgroundColor,title_color,
                          title_size,fontWeight,widthLogo,heightLogo,
@@ -13,13 +12,31 @@ export const Toolbar = ({title,methodLogout,backgroundColor,title_color,
   </View>
 )
 
-export const Options = ({methodLogout}) => (
+export const Options = ({methodLogout,icon}) => (
   <OptionsMenu
-    customButton={icon_setting}
-    buttonStyle={{width:32,height:8,color: '#ffff'}}
+    customButton={icon}
     options={["Logout"]}
     actions={[methodLogout]}
   />
+)
+
+export const ToolbarHeader = ({backgroundColor,title,methodLogout,icon}) => (
+  <Header style={{backgroundColor}}>
+    <Left style={{flex:1}}>
+    </Left>
+    <Body style={{flex:0.6}}>
+      <Title style={{fontWeight: 'bold'}}>{title}</Title>
+    </Body>
+    <Right style={{flex:1}}>
+      <Button transparent>
+        <OptionsMenu
+          customButton={<Icon name='more'/>}
+          options={["Logout"]}
+          actions={[methodLogout]}
+        />
+      </Button>
+    </Right>
+  </Header>
 )
 
 const styles = StyleSheet.create({

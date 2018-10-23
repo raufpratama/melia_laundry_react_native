@@ -10,21 +10,15 @@ import {
   Platform,
   Image,
 } from 'react-native';
-import { Toolbar, Options } from '../components/toolbar';
-import { Header } from 'react-native-elements';
+import { ToolbarHeader } from '../components/toolbar';
 
 export default class AboutScreen extends Component {
+  _klik = () => alert('crot');
   render() {
     return (
       <View style={styles.container}>
-      <StatusBar backgroundColor='#F57C00' barStyle='light-content'/>
-      <Header
-        backgroundColor='#F57C00'
-        outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 30}}
-        placement='left'
-        centerComponent={{ text: 'TENTANG', style: { color: '#fff',fontWeight:'bold',fontSize:16 } }}
-        rightComponent={<Options methodLogout={this._klik}/>}
-        />
+        <StatusBar backgroundColor='#F57C00' barStyle='light-content'/>
+        <ToolbarHeader title={'TENTANG'} methodLogout={this._klik} backgroundColor='#F57C00'/>
         <Text>I'm the AboutScreen component</Text>
       </View>
     );

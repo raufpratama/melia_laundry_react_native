@@ -10,6 +10,7 @@ import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import HistoryScreen from './screens/HistoryScreen';
+import Counter from './components/counter';
 
 export default class App extends Component {
   render(){

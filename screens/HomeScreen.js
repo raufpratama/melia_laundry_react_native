@@ -14,7 +14,7 @@ import {
   Modal,
   Platform,
 } from 'react-native';
-import { Toolbar, Options } from '../components/toolbar';
+import { ToolbarHeader } from '../components/toolbar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { icon, Header } from 'react-native-elements';
 
@@ -31,13 +31,7 @@ export default class HomeScreen extends Component {
     return (
       <View style={styles.container}>
       <StatusBar backgroundColor='#F57C00' barStyle='light-content'/>
-      <Header
-        backgroundColor='#F57C00'
-        outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 30}}
-        placement='left'
-        centerComponent={{ text: 'BERANDA', style: { color: '#fff',fontWeight:'bold',fontSize:16 } }}
-        rightComponent={<Options methodLogout={this._klik}/>}
-        />
+      <ToolbarHeader title='BERANDA' methodLogout={this._klik} backgroundColor='#F57C00'/>
         <ScrollView style={{flex:4}}
           horizontal={true}
           pagingEnabled={true}

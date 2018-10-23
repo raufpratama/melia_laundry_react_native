@@ -25,7 +25,7 @@ export default class SignUpScreen extends Component {
     notelp:'',
     password:'',
     confpass:'',
-    alamat:'',                
+    alamat:'',
   }
 
   _klik = (keterangan) => Alert.alert(keterangan);

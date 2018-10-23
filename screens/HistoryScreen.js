@@ -3,12 +3,15 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   Platform,
+  StatusBar,
 } from 'react-native';
-import { Options } from '../components/toolbar';
-import {Header} from 'react-native-elements';
+import OptionsMenu from 'react-native-options-menu';
+import { Segment, Button, Tabs, Tab, TabHeading, Text, Header, Left, Right, Body, Title, Container, Icon } from 'native-base';
+import { ToolbarHeader } from '../components/toolbar';
+import ProsesScreen from './ProsesScreen';
+import SelesaiScreen from './SelesaiScreen';
 
 export default class HistoryScreen extends Component {
   _klik = () => alert('crot');
@@ -16,14 +19,18 @@ export default class HistoryScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <Header
-        backgroundColor='#F57C00'
-        outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 30}}
-        placement='left'
-        centerComponent={{ text: 'PESANAN', style: { color: '#fff',fontWeight:'bold',fontSize:16 } }}
-        rightComponent={<Options methodLogout={this._klik}/>}
-        />
-        <Text>I'm the HistoryScreen component</Text>
+        <StatusBar backgroundColor='#F57C00' barStyle='light-content'/>
+        <Container>
+          <ToolbarHeader title='PESANAN' methodLogout={this._klik} backgroundColor='#F57C00'/>
+          <Tabs>
+            <Tab heading={<TabHeading style={{backgroundColor:'#F57C00',borderTopWidth:0}}><Text>Proses</Text></TabHeading>}>
+              <ProsesScreen/>
+            </Tab>
+            <Tab heading={<TabHeading style={{backgroundColor:'#F57C00'}}><Text>Riwayat</Text></TabHeading>}>
+              <SelesaiScreen/>
+            </Tab>
+          </Tabs>
+        </Container>
       </View>
     );
   }
