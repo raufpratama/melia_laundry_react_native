@@ -11,6 +11,8 @@ import {
   Image,
 } from 'react-native';
 import { ToolbarHeader } from '../components/toolbar';
+import {Accordion} from 'native-base';
+import {data} from '../components/data';
 
 export default class AboutScreen extends Component {
   _klik = () => alert('crot');
@@ -19,7 +21,7 @@ export default class AboutScreen extends Component {
       <View style={styles.container}>
         <StatusBar backgroundColor='#F57C00' barStyle='light-content'/>
         <ToolbarHeader title={'TENTANG'} methodLogout={this._klik} backgroundColor='#F57C00'/>
-        <Text>I'm the AboutScreen component</Text>
+        <Accordion dataArray={data} expanded={0}/>
       </View>
     );
   }

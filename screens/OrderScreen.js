@@ -6,11 +6,13 @@ import {
   Text,
   StyleSheet,
   Platform,
-  StatusBar
+  StatusBar,
+  FlatList,
 } from 'react-native';
 import { Options } from '../components/toolbar';
 import { List, ListItem, Thumbnail, Left, Right, Body, Header, Item, Icon, Title, Button, Input } from 'native-base';
 import Counter from '../components/counter';
+import {orderlaundry} from '../components/data';
 
 export default class OrderScreen extends Component {
   state = {
@@ -58,21 +60,27 @@ export default class OrderScreen extends Component {
       <View style={styles.container}>
         <StatusBar backgroundColor='#F57C00' barStyle='light-content'/>
         {stt.searchh ? stt.header : stt.searchHeader}
-        <List>
-          <ListItem thumbnail>
-            <Left>
-              <Thumbnail source={require('../img/jas.png')}/>
-            </Left>
-            <Body>
-              <Text style={{fontWeight: 'bold',color: 'black',fontSize: 16}}>Jas</Text>
-              <Text note>Reguler : IDK 23.000,-</Text>
-              <Text note>One Day : IDK 40.000,-</Text>
-            </Body>
-            <Right>
-              <Counter/>
-            </Right>
-          </ListItem>
-        </List>
+        <FlatList
+          data={orderlaundry}
+          renderItem={({item})=> (
+            <List>
+            <ListItem button thumbnail>
+              <Left>
+                <Thumbnail source={{uri:item.uri}}/>
+              </Left>
+              <Body>
+                <Text style={{fontWeight: 'bold',color: 'black',fontSize: 16}}>{item.nama_pakaian}</Text>
+                <Text note>Reguler : {item.harga_reguler},-</Text>
+                <Text note>One Day : {item.harga_oneday},-</Text>
+              </Body>
+              <Right>
+                <Counter/>
+              </Right>
+            </ListItem>
+          </List>)
+        }
+        keyExtractor={(item,index)=>index}/>
+
       </View>
     );
   }
