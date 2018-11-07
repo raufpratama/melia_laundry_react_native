@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, StatusBar } from 'react-native';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator,createSwitchNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import OrderScreen from './screens/OrderScreen';
 import AboutScreen from './screens/AboutScreen';
@@ -10,12 +10,12 @@ import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import HistoryScreen from './screens/HistoryScreen';
-import Counter from './components/counter';
+import AuthLoadingScreen from './screens/AuthLoadingScreen';
 
 export default class App extends Component {
   render(){
     return(
-      <HomeMenu/>
+      <AuthStack/>
     );
   }
 }
@@ -79,4 +79,10 @@ const SignStack = createStackNavigator({
       header:null,
     }
   },
+})
+
+const AuthStack = createSwitchNavigator({
+  Auth:AuthLoadingScreen,
+  App:HomeMenu,
+  GetStarted:SignStack,
 })

@@ -65,3 +65,13 @@ export const orderlaundry = [{
   harga_reguler: '23.000',
   harga_oneday: '40.000',
 },]
+
+export const data_user = {
+  uri:'https://pbs.twimg.com/profile_images/1584748622/Picture0242_400x400.jpg',
+  nama:'Levita Judini',
+  user:'levitajudini',
+  pass:'tes123',
+  alamat:'Komp Karyawisata',
+  notelp:'081232891742',
+  email:'pita@gmail.com'
+};

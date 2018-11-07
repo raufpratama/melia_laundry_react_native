@@ -13,25 +13,48 @@ import {
   TouchableOpacity,
   Modal,
   Platform,
+  AsyncStorage,
+  ToastAndroid,
 } from 'react-native';
 import { ToolbarHeader } from '../components/toolbar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { icon, Header } from 'react-native-elements';
 
 export default class HomeScreen extends Component {
-  state = {
-    modalisVisible: false,
+  constructor(props){
+  	super(props);
+  	this.state = {
+      modalisVisible:false,
+      user:[],
+    };
+    this._getData()
   }
 
   _klik = () => {
     alert('klik!');
   }
+
+  _getData = async() => {
+    try {
+      const daataa = await AsyncStorage.getItem('usertoken');
+      const item = JSON.parse(daataa);
+      await this.setState({user:item})
+      ToastAndroid.show(`selamat datang ${this.state.user.nama}`,ToastAndroid.SHORT);
+    } catch(err) {
+      console.log(err.message);
+    }
+  }
+
+  _logout = async() => {
+    await AsyncStorage.clear();
+    this.props.navigation.navigate('GetStarted');
+  }
+
   render() {
     const klik = this.klik;
     return (
       <View style={styles.container}>
-      <StatusBar backgroundColor='#F57C00' barStyle='light-content'/>
-      <ToolbarHeader title='BERANDA' methodLogout={this._klik} backgroundColor='#F57C00'/>
+      <ToolbarHeader title='BERANDA' methodLogout={this._logout} backgroundColor='#F57C00'/>
         <ScrollView style={{flex:4}}
           horizontal={true}
           pagingEnabled={true}
